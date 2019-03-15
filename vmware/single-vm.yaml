@@ -1,0 +1,17 @@
+host: pdx-vc-prd-01.yleo.us
+#port: 123
+user: v-rmello@youngliving.com
+password: 
+template: 2019-03-05 TrueMark Ubuntu 18.04 Template
+#datacenter-name: dontknow
+vm-folder: Dev-Test
+#datastore-name: optional
+#datastorecluster-name: optional
+#cluster-name: optional
+#resource-pool: optional
+#opaque-network: anic
+options:
+    - verbose
+    - no-ssl
+    #- power-on
+vms: TM-UBUNTU-18-TEST-1
