@@ -176,6 +176,9 @@ def clone_vm(
             content, [vim.Datastore], template.datastore[0].info.name)
 
     # if None, get the first one
+    if not cluster_name:
+        logging.warning("No cluster passed. We'll try to get the first one, but it might not work...")
+
     cluster = get_obj(content, [vim.ClusterComputeResource], cluster_name)
 
     if resource_pool:
@@ -228,11 +231,12 @@ def process_stanza(args):
     the yaml file.
 
     However, for now this program is not doing that because we'd need logic
-    to separate stanzas that succeeded and failed. Ideally it'd atomic, but
+    to separate stanzas that succeeded and failed. Ideally it'd be atomic, but
     in order to achieve that, we'd have to remove the VMs created from
-    succeeded stanzas upon hitting a failed one.
+    succeeded stanzas upon hitting a failed one, and that wouldadd complexity
+    we don't want at this poin"t.
 
-    :param args:
+    :param args: args from parser.parse_args()
     :return:
     '''
     si = None
